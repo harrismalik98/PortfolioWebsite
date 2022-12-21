@@ -1,0 +1,9 @@
+const text=document.querySelector(".info"),image=document.querySelector(".image");function appearOnScroll(){let e=text.getBoundingClientRect().top;window.innerHeight/1>e?(text.classList.remove("push-left"),image.classList.remove("push-right")):(text.classList.add("push-left"),image.classList.add("push-right"))}window.addEventListener("scroll",appearOnScroll);var typed=new Typed(".typing",{strings:["Full Stack Developer","Graphic Designer"],typeSpeed:100,backSpeed:60,loop:!0});window.onbeforeunload=()=>{for(let e of document.getElementsByTagName("form"))e.reset()},$(window).scroll(function(){$(window).scrollTop()>0?$("nav").addClass("floatingNav"):$("nav").removeClass("floatingNav")});const openMenuBtn=document.querySelector("#open-menu"),closeMenuBtn=document.querySelector("#close-menu"),menu=document.querySelector(".nav-menu");openMenuBtn.addEventListener("click",()=>{menu.style.display="block",closeMenuBtn.style.display="inline-block",openMenuBtn.style.display="none"});const closeNav=()=>{menu.style.display="none",closeMenuBtn.style.display="none",openMenuBtn.style.display="inline-block"};closeMenuBtn.addEventListener("click",closeNav),window.innerWidth<=1024&&document.querySelectorAll(".nav-menu li a").forEach(e=>{e.addEventListener("click",closeNav)});const fetchPortfolios=()=>{let e=document.querySelector(".portfolio-projects");e.innerHTML="",portfolioProjects.forEach(t=>{let n=document.createElement("article");n.className="portfolio-project",n.innerHTML=`
+          <span class="portfolio-image"><img src="images/portfolio/${t.image}" alt="Project Image"></span>
+          <h4>${t.title}</h4>
+          <p>${t.description}</p>
+          <div class="portfolio-cta">
+              <a href="${t.github}" class="btn" target="_blank">Github</a>
+              <a href="${t.live}" class="btn btn-primary" target="_blank">Live Demo</a>
+          </div>
+    `,e.append(n)})};window.addEventListener("load",fetchPortfolios);
